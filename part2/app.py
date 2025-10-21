@@ -9,6 +9,17 @@ def find_spans(text: str, pattern: str):
     Inputs should already be lowercased by the caller."""
 
     spans = []
+    i = 0
+
+    if not pattern or len(pattern) > len(text):
+        return []
+    else:
+        while i < len(text):
+            if text[i:i + len(pattern)] == pattern:
+                spans.append((i,i+ len(pattern)))
+            i += 1
+
+
 
     # TODO: compute spans that contain the pattern in `text`.
     #  Append tuples (start, end) to `spans`, using Python slicing semantics:
